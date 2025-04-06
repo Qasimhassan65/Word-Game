@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const saveWordBtn = document.getElementById('save-word-btn');
     const wordList = document.getElementById('word-list');
     const backBtn = document.getElementById('back-to-main-btn');
-    const imageInput = document.getElementById('image-input'); // New image input reference
+    const imageInput = document.getElementById('image-input');
 
     // Load dictionary from LocalStorage or initialize as empty array
     let dictionary = JSON.parse(localStorage.getItem('gameDictionary')) || [];
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         saveDictionaryToStorage();
-        appendWordToList(dictionary[dictionary.length - 1], dictionary.length - 1);
+        updateWordList(); // Update the entire list to ensure indices are correct
         wordInput.value = '';
         imageInput.value = ''; // Clear image input
         manualBlankOptions.innerHTML = '';
@@ -97,46 +97,40 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Helper: Initial full update of dictionary display
+    // Helper: Update the entire word list display
     function updateWordList() {
         wordList.innerHTML = '';
-        dictionary.forEach((entry, index) => appendWordToList(entry, index));
-    }
+        dictionary.forEach((entry, index) => {
+            const li = document.createElement('li');
+            li.dataset.index = index;
+            li.textContent = `${entry.word} (${entry.blankType}${entry.blanks.length ? ': ' + entry.blanks.join(', ') : ''})`;
 
-    // Helper: Append a single word to the list
-    function appendWordToList(entry, index) {
-        const li = document.createElement('li');
-        li.dataset.index = index;
-        li.textContent = `${entry.word} (${entry.blankType}${entry.blanks.length ? ': ' + entry.blanks.join(', ') : ''})`;
+            const img = document.createElement('img');
+            img.src = entry.image;
+            img.style.maxWidth = '50px';
+            img.onerror = () => { img.src = '../assets/words_images/error.png'; };
+            li.appendChild(img);
 
-        const img = document.createElement('img');
-        img.src = entry.image;
-        img.style.maxWidth = '50px';
-        img.onerror = () => { img.src = '../assets/words_images/default.png'; };
-        li.appendChild(img);
+            const removeBtn = document.createElement('button');
+            removeBtn.textContent = 'Remove';
+            removeBtn.className = 'remove-btn';
+            removeBtn.addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevent event bubbling
+                removeWord(parseInt(li.dataset.index));
+            });
+            li.appendChild(removeBtn);
 
-        const removeBtn = document.createElement('button');
-        removeBtn.textContent = 'Remove';
-        removeBtn.className = 'remove-btn';
-        removeBtn.addEventListener('click', () => removeWord(index));
-        li.appendChild(removeBtn);
-
-        wordList.appendChild(li);
+            wordList.appendChild(li);
+        });
     }
 
     // Helper: Remove word from dictionary and update display
     function removeWord(index) {
-        dictionary.splice(index, 1);
-        saveDictionaryToStorage();
-
-        const liToRemove = wordList.querySelector(`li[data-index="${index}"]`);
-        if (liToRemove) {
-            liToRemove.remove();
+        if (index >= 0 && index < dictionary.length) {
+            dictionary.splice(index, 1);
+            saveDictionaryToStorage();
+            updateWordList(); // Refresh the entire list to ensure indices are correct
         }
-
-        Array.from(wordList.children).forEach((li, newIndex) => {
-            li.dataset.index = newIndex;
-        });
     }
 
     // Helper: Save dictionary to LocalStorage
