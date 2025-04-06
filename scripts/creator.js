@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const img = document.createElement('img');
             img.src = entry.image;
             img.style.maxWidth = '50px';
-            img.onerror = () => { img.src = '../assets/words_images/error.png'; };
+            img.onerror = () => { img.src = './assets/words_images/error.png'; };
             li.appendChild(img);
 
             const removeBtn = document.createElement('button');
