@@ -1,0 +1,192 @@
+/* Reset and base setup */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Fredoka', sans-serif;
+    background: linear-gradient(to bottom, #fddde6, #d4f1f4);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align to the top */
+    overflow-y: auto; /* Allow vertical scrolling */
+    padding: 20px;
+}
+
+
+/* Container styling */
+.creator-container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    max-width: 700px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Headings */
+.creator-container h1 {
+    font-size: 2.8em;
+    color: #ff6b81;
+    margin-bottom: 20px;
+}
+
+.creator-container h2 {
+    font-size: 1.8em;
+    color: #444;
+    margin: 25px 0 10px;
+}
+
+/* Input Groups */
+.input-group {
+    margin: 20px 0;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    font-size: 1.2em;
+    margin-bottom: 8px;
+    color: #444;
+}
+
+/* Inputs */
+.input-group input[type="text"] {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 1em;
+    border: 2px solid #ccc;
+    border-radius: 12px;
+    background-color: #fefefe;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: border 0.3s;
+}
+
+.input-group input[type="text"]:focus {
+    border-color: #ff6b81;
+    outline: none;
+}
+
+/* Radio buttons */
+.radio-group {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.radio-group input[type="radio"] {
+    margin-right: 8px;
+}
+
+.radio-group label {
+    font-size: 1em;
+    color: #333;
+    cursor: pointer;
+}
+
+/* Manual blank section */
+#manual-blank-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* Buttons */
+button {
+    margin-top: 20px;
+    padding: 15px 25px;
+    font-size: 1.1em;
+    background-color: #ff6b81;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+button:hover {
+    background-color: #ff4d6d;
+    transform: scale(1.05);
+}
+
+#save-word-btn {
+    background-color: #28a745;
+}
+
+#save-word-btn:hover {
+    background-color: #218838;
+}
+
+#back-to-main-btn {
+    background-color: #007bff;
+}
+
+#back-to-main-btn:hover {
+    background-color: #0056b3;
+}
+
+#word-list {
+    list-style: none;
+    text-align: left;
+    padding: 0;
+    max-height: 200px; /* Set max height */
+    overflow-y: auto;  /* Enable scrolling */
+    margin-top: 10px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    background-color: #fff;
+}
+#word-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+#word-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+#word-list::-webkit-scrollbar-thumb {
+    background-color: #ff6b81;
+    border-radius: 10px;
+}
+
+
+#word-list li {
+    background-color: #fff3f3;
+    padding: 12px 20px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    border: 1px solid #ffd6d6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Remove button inside word list */
+.remove-btn {
+    background-color: #dc3545;
+    padding: 5px 12px;
+    font-size: 0.85em;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.remove-btn:hover {
+    background-color: #c82333;
+}
+
+/* Divider */
+hr {
+    margin: 30px 0;
+    border: none;
+    border-top: 1px solid #ccc;
+}

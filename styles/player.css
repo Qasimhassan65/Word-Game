@@ -1,0 +1,143 @@
+/* Reset & Base Setup */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Comic Neue', cursive;
+  background: linear-gradient(to bottom, #d0f4f7, #ffffff);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  overflow: hidden;
+}
+
+/* Main Container */
+.container {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 40px 35px;
+  border-radius: 30px;
+  border: 4px dashed #4dabf7;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  text-align: center;
+  max-width: 420px;
+  width: 100%;
+  transition: transform 0.3s ease;
+}
+
+.container:hover {
+  transform: scale(1.02);
+}
+
+/* Heading */
+.container h1 {
+  font-size: 2.6em;
+  color: #4dabf7;
+  margin-bottom: 25px;
+  text-shadow: 1px 1px 2px #fff;
+  font-weight: 700;
+}
+
+/* Total Words Text */
+#total-words {
+  font-weight: bold;
+  color: #28a745;
+  font-size: 1.2em;
+}
+
+/* Label Styling */
+label {
+  font-size: 1.2em;
+  font-weight: 600;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  color: #333;
+  display: block;
+  text-align: left;
+}
+
+/* Input Field */
+input[type="number"] {
+  padding: 14px 16px;
+  width: 100%;
+  font-size: 1.1em;
+  border: 2px solid #bcdffb;
+  border-radius: 16px;
+  background-color: #fefefe;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+  transition: border-color 0.3s ease;
+}
+
+input[type="number"]:focus {
+  border-color: #4dabf7;
+  outline: none;
+}
+
+/* Buttons */
+button {
+  font-family: 'Comic Neue', cursive;
+  padding: 16px 28px;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: white;
+  border: none;
+  border-radius: 22px;
+  cursor: pointer;
+  margin-top: 22px;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* Start Button */
+#start-btn {
+  background-color: #4dabf7;
+}
+
+#start-btn:hover {
+  background-color: #3390d3;
+  transform: scale(1.06);
+}
+
+/* Back Button */
+.back-btn {
+  background-color: #6c757d;
+  margin-top: 16px;
+}
+
+
+.back-btn:hover {
+  background-color: #555e65;
+  transform: scale(1.06);
+}
+
+/* Error Message */
+.error {
+  color: #e74c3c;
+  font-size: 1em;
+  font-weight: 500;
+  margin-top: 18px;
+}
+
+/* Media Queries for Mobile */
+@media screen and (max-width: 500px) {
+  .container {
+    padding: 30px 22px;
+  }
+
+  .container h1 {
+    font-size: 2.1em;
+  }
+
+  button {
+    font-size: 1em;
+    padding: 14px 24px;
+  }
+
+  input[type="number"] {
+    font-size: 1em;
+  }
+}

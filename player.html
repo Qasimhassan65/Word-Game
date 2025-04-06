@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Start a New Game</title>
+  <link rel="stylesheet" href="./styles/player.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <div class="container">
+    <h1>🎮 Start Game</h1>
+
+    <p>Total words available: <span id="total-words">0</span></p>
+    
+    <label for="word-count">✨ Number of words to play:</label>
+    <input type="number" id="word-count" min="1" placeholder="Enter number">
+
+    <button id="start-btn">🚀 Start Game</button>
+    <button id="back-to-menu-btn" class="back-btn">⬅️ Back to Menu</button>
+
+    <p id="error-msg" class="error"></p>
+  </div>
+
+  <script src="./scripts/player.js"></script>
+</body>
+</html>

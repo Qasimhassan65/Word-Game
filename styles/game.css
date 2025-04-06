@@ -1,0 +1,273 @@
+/* Reset and base setup */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Comic Neue', cursive;
+  background: linear-gradient(to bottom, #fddde6, #d4f1f4);
+  min-height: 100vh;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 15px;
+  position: relative;
+}
+
+/* Decorative cloud background */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../assets/words_images/homebg.jpeg") repeat-x;
+  background-size: cover;
+  opacity: 0.35;
+  z-index: -1;
+  animation: moveClouds 60s linear infinite;
+}
+
+@keyframes moveClouds {
+  from { background-position: 0 0; }
+  to { background-position: 1000px 0; }
+}
+
+/* Main game container */
+.game-container {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 40px;
+  border-radius: 30px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 960px;
+  text-align: center;
+}
+
+.game-container h1 {
+  font-size: 3em;
+  color: #ff6b81;
+  margin-bottom: 30px;
+}
+
+#words-container {
+  border: 3px dashed #ffb703;
+  background-color: #fffbe6;
+  padding: 30px;
+  height: 380px;
+  overflow-y: auto;
+  border-radius: 20px;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+#words-container::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+#words-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+#words-container::-webkit-scrollbar-thumb {
+  background-color: #ff6b81;
+  border-radius: 10px;
+}
+
+.word-item {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  background-color: #fcefee;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.word-item img {
+  max-width: 60px;
+  border-radius: 8px;
+}
+
+.blank,
+.filled {
+  display: inline-block;
+  width: 36px;
+  height: 48px;
+  border-bottom: 4px solid #ff6b81;
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 0 4px;
+  background-color: #fff;
+  border-radius: 6px;
+  line-height: 48px;
+  vertical-align: middle;
+}
+
+.filled {
+  color: #28a745;
+}
+
+#alphabet-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  max-width: 740px;
+  margin: 0 auto 30px;
+}
+
+.letter {
+  width: 56px;
+  height: 56px;
+  background-color: #4dabf7;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 1.5em;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  cursor: grab;
+  transition: all 0.3s ease;
+}
+
+.letter:hover {
+  transform: scale(1.15);
+  background-color: #3694db;
+}
+
+/* Buttons */
+button {
+  font-family: 'Comic Neue', cursive;
+  padding: 15px 32px;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  margin-left: 30px;
+}
+
+#view-score-btn {
+  background-color: #6ac259;
+}
+
+#view-score-btn:hover {
+  background-color: #57a146;
+  transform: scale(1.05);
+}
+
+#close-score-btn {
+  background-color: #ff6f61;
+}
+
+#close-score-btn:hover {
+  background-color: #e65850;
+  transform: scale(1.05);
+}
+
+#return-to-menu-btn {
+  background-color: #ff6b81;
+  margin-top: 20px;
+}
+
+#return-to-menu-btn:hover{
+  background-color: #f81aaaf5;
+  transform: scale(1.05);
+}
+
+/* Score Popup */
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fffbe6;
+  padding: 40px 50px;
+  border-radius: 25px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+  min-width: 320px;
+  text-align: center;
+}
+
+.popup h2 {
+  font-size: 2em;
+  color: #ff6b81;
+  margin-bottom: 20px;
+}
+
+#score-details {
+  font-size: 1.1em;
+  color: #444;
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+.feedback {
+  position: absolute;
+  padding: 8px 16px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1em;
+  font-weight: bold;
+  pointer-events: none;
+  opacity: 0.95;
+  animation: fadeOut 1.2s forwards;
+}
+
+.feedback.correct {
+  background-color: #28a745;
+}
+
+.feedback.wrong {
+  background-color: #dc3545;
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .game-container h1 {
+    font-size: 2em;
+  }
+
+  .letter {
+    width: 42px;
+    height: 42px;
+    font-size: 1.1em;
+  }
+
+  .blank,
+  .filled {
+    width: 28px;
+    height: 38px;
+    font-size: 1.2em;
+    line-height: 38px;
+  }
+
+  #words-container {
+    height: auto;
+  }
+
+  button {
+    font-size: 1em;
+    padding: 12px 24px;
+  }
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Creator Mode - Word Guesser</title> 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap"> 
+    <link rel="stylesheet" href="./styles/creator.css"> 
+</head> 
+<body> 
+    <div class="creator-container"> 
+        <h1>✏️ Word Creator Mode ✨</h1> 
+ 
+        <div class="input-group"> 
+            <label for="word-input">🧠 Enter a Word:</label> 
+            <input type="text" id="word-input" placeholder="e.g., Panda"> 
+        </div> 
+
+        <div class="input-group"> 
+            <label for="image-input">🖼️ Image Path:</label> 
+            <input type="text" id="image-input" placeholder="../assets/words_images/imagename.png"> 
+            <p class="help-text">Leave empty to use default naming (wordname.png)</p>
+        </div>
+ 
+        <div class="input-group"> 
+            <label>🎯 Choose Blank Type:</label> 
+            <div class="radio-group"> 
+                <input type="radio" id="random-blanks" name="blank-type" value="random" checked> 
+                <label for="random-blanks">Random</label> 
+                <input type="radio" id="manual-blanks" name="blank-type" value="manual"> 
+                <label for="manual-blanks">Manual</label> 
+            </div> 
+        </div> 
+ 
+        <div id="manual-blanks-container" class="input-group" style="display: none;"> 
+            <label>Click letters to blank:</label> 
+            <div id="manual-blank-options"></div> 
+        </div> 
+ 
+        <button id="save-word-btn">💾 Save Word</button> 
+ 
+        <hr> 
+        <h2>📚 My Word List</h2> 
+        <ul id="word-list"></ul> 
+ 
+        <button id="back-to-main-btn">🔙 Back to Menu</button> 
+    </div> 
+ 
+    <script src="./scripts/creator.js"></script> 
+</body> 
+</html>

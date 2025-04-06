@@ -1,0 +1,112 @@
+/* Reset and base setup */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Comic Neue', cursive;
+    background: linear-gradient(to bottom, #a0d8ef, #ffffff);
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Animated background clouds */
+  .cloud-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("../assets/words_images/homebg.jpeg") repeat-x;
+    background-size: cover;
+    opacity: 0.65;
+    z-index: -1;
+  }
+  
+
+  
+  /* Main menu box */
+  .menu-container {
+    background: #fffbe6;
+    border: 4px dashed #ffb703;
+    border-radius: 30px;
+    padding: 50px 40px;
+    text-align: center;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s;
+  }
+  
+  .menu-container:hover {
+    transform: scale(1.02);
+  }
+  
+  .menu-container h1 {
+    font-size: 3em;
+    color: #ff6f61;
+    margin-bottom: 40px;
+    text-shadow: 1px 1px #fff;
+  }
+  
+  /* Buttons */
+  .button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  button {
+    font-family: 'Comic Neue', cursive;
+    padding: 20px 40px;
+    font-size: 1.5em;
+    color: #fff;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  button:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Creator Mode Button */
+  #creator-mode-btn {
+    background-color: #6ac259;
+  }
+  
+  #creator-mode-btn:hover {
+    background-color: #57a146;
+  }
+  
+  /* Player Mode Button */
+  #player-mode-btn {
+    background-color: #4dabf7;
+  }
+  
+  #player-mode-btn:hover {
+    background-color: #3694db;
+  }
+  
+  /* Responsive */
+  @media screen and (max-width: 600px) {
+    .menu-container {
+      padding: 30px 20px;
+    }
+  
+    .menu-container h1 {
+      font-size: 2em;
+    }
+  
+    button {
+      font-size: 1.2em;
+      padding: 15px 30px;
+    }
+  }
+  
